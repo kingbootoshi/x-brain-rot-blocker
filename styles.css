@@ -79,6 +79,40 @@
   gap: 16px;
 }
 
+.brainrot-leisure {
+  margin-top: 60px !important;
+  padding: 8px 16px !important;
+  background: transparent !important;
+  border: none !important;
+  color: #333 !important;
+  font-size: 11px !important;
+  cursor: pointer !important;
+  opacity: 0.4 !important;
+  transition: opacity 0.2s !important;
+}
+
+.brainrot-leisure:hover {
+  opacity: 0.7 !important;
+  color: #666 !important;
+}
+
+/* Leisure timer - green instead of red */
+#brainrot-timer.leisure {
+  border-color: #22c55e !important;
+}
+
+#brainrot-timer.leisure .timer-bar-fill {
+  background: #22c55e !important;
+}
+
+#brainrot-timer.leisure.warning {
+  border-color: #eab308 !important;
+}
+
+#brainrot-timer.leisure.warning .timer-bar-fill {
+  background: #eab308 !important;
+}
+
 .brainrot-reset {
   margin-top: 40px !important;
   padding: 8px 16px !important;

@@ -1,7 +1,7 @@
 // X Brain Rot Blocker - Background Service Worker
 // Handles timer persistence and cross-tab coordination
 
-const DOOMSCROLL_DURATION = 60 * 1000; // 60 seconds
+const DEFAULT_DURATION = 60 * 1000; // 60 seconds default
 const ALARM_NAME = 'doomscroll-timer';
 
 // Check timer on alarm
@@ -17,8 +17,9 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
     const newTimer = changes.doomscrollTimer.newValue;
 
     if (newTimer && newTimer.startTime) {
-      // Set alarm for when timer expires
-      const expireTime = newTimer.startTime + DOOMSCROLL_DURATION;
+      // Set alarm for when timer expires - use stored duration
+      const duration = newTimer.duration || DEFAULT_DURATION;
+      const expireTime = newTimer.startTime + duration;
       chrome.alarms.create(ALARM_NAME, { when: expireTime });
     } else {
       // Timer cleared - remove alarm
@@ -31,9 +32,10 @@ async function checkTimerExpiry() {
   const data = await chrome.storage.local.get(['currentMode', 'doomscrollTimer']);
 
   if (data.currentMode === 'doomscrolling' && data.doomscrollTimer) {
+    const duration = data.doomscrollTimer.duration || DEFAULT_DURATION;
     const elapsed = Date.now() - data.doomscrollTimer.startTime;
 
-    if (elapsed >= DOOMSCROLL_DURATION) {
+    if (elapsed >= duration) {
       // Timer expired - notify all X tabs
       await chrome.storage.local.set({
         currentMode: null,
@@ -66,7 +68,8 @@ chrome.runtime.onInstalled.addListener(async () => {
 // Keep service worker alive during active doomscroll session
 chrome.storage.local.get(['currentMode', 'doomscrollTimer'], (data) => {
   if (data.currentMode === 'doomscrolling' && data.doomscrollTimer) {
-    const expireTime = data.doomscrollTimer.startTime + DOOMSCROLL_DURATION;
+    const duration = data.doomscrollTimer.duration || DEFAULT_DURATION;
+    const expireTime = data.doomscrollTimer.startTime + duration;
     if (expireTime > Date.now()) {
       chrome.alarms.create(ALARM_NAME, { when: expireTime });
     }
