@@ -1,0 +1,450 @@
+/* X Brain Rot Blocker - Styles */
+
+/* =====================
+   BLOCKER OVERLAY
+   ===================== */
+#brainrot-blocker {
+  all: initial !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #000 !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#brainrot-blocker * {
+  box-sizing: border-box !important;
+}
+
+.brainrot-container {
+  all: initial !important;
+  display: block !important;
+  text-align: center !important;
+  padding: 40px !important;
+  max-width: 500px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  color: #fff !important;
+}
+
+.brainrot-warning-icon {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-bottom: 24px !important;
+  animation: pulse 2s ease-in-out infinite !important;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+.brainrot-title {
+  font-size: 42px !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  margin: 0 0 16px 0 !important;
+  letter-spacing: -1px;
+}
+
+.brainrot-subtitle {
+  font-size: 18px !important;
+  color: #6b7280 !important;
+  margin: 0 0 40px 0 !important;
+  line-height: 1.5;
+}
+
+.brainrot-question {
+  font-size: 16px !important;
+  color: #9ca3af !important;
+  margin: 0 0 24px 0 !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.brainrot-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.brainrot-reset {
+  margin-top: 40px !important;
+  padding: 8px 16px !important;
+  background: transparent !important;
+  border: 1px solid #333 !important;
+  color: #666 !important;
+  font-size: 12px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+
+.brainrot-reset:hover {
+  border-color: #666 !important;
+  color: #999 !important;
+}
+
+.brainrot-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 32px;
+  border: 2px solid;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.brainrot-btn .btn-icon {
+  position: absolute;
+  left: 20px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.brainrot-btn .btn-desc {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 4px;
+  opacity: 0.7;
+}
+
+/* Posting - Green */
+.brainrot-btn-posting {
+  border-color: #22c55e;
+  color: #22c55e;
+}
+
+.brainrot-btn-posting:hover {
+  background: #22c55e;
+  color: #000;
+}
+
+/* Replying - Blue */
+.brainrot-btn-replying {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.brainrot-btn-replying:hover {
+  background: #3b82f6;
+  color: #fff;
+}
+
+/* Doomscrolling - Red */
+.brainrot-btn-doomscroll {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.brainrot-btn-doomscroll:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* =====================
+   CAPTCHA MODAL
+   ===================== */
+.brainrot-captcha {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.captcha-container {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  max-width: 400px;
+}
+
+.captcha-container h2 {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 0 24px 0;
+}
+
+.captcha-question {
+  color: #ef4444;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+}
+
+.captcha-input {
+  width: 100%;
+  padding: 16px;
+  font-size: 24px;
+  text-align: center;
+  background: #000;
+  border: 2px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.captcha-input:focus {
+  border-color: #ef4444;
+}
+
+.captcha-input.shake {
+  animation: shake 0.5s ease;
+  border-color: #ef4444;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.captcha-submit {
+  width: 100%;
+  padding: 16px;
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.captcha-submit:hover {
+  background: #dc2626;
+}
+
+.captcha-cancel {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  font-size: 14px;
+  background: transparent;
+  color: #6b7280;
+  border: 1px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.captcha-cancel:hover {
+  border-color: #6b7280;
+  color: #9ca3af;
+}
+
+/* =====================
+   TIMER OVERLAY
+   ===================== */
+#brainrot-timer {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 2147483646 !important;
+  background: rgba(0, 0, 0, 0.9) !important;
+  border: 2px solid #ef4444 !important;
+  border-radius: 12px !important;
+  padding: 16px 24px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.timer-display {
+  text-align: center;
+}
+
+.timer-value {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-bar {
+  width: 100px;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.timer-bar-fill {
+  height: 100%;
+  background: #ef4444;
+  border-radius: 2px;
+  transition: width 1s linear;
+}
+
+#brainrot-timer.warning {
+  animation: timerPulse 0.5s ease infinite;
+}
+
+#brainrot-timer.warning .timer-value {
+  color: #ef4444;
+}
+
+@keyframes timerPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* =====================
+   TRACKED POSTS UI
+   ===================== */
+#brainrot-tracked-posts {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #000 !important;
+  z-index: 2147483645 !important;
+  overflow-y: auto !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.tracked-posts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  background: #000;
+}
+
+.tracked-posts-header h2 {
+  color: #fff;
+  font-size: 24px;
+  margin: 0;
+}
+
+.tracked-posts-exit {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #333;
+  color: #9ca3af;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.tracked-posts-exit:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.tracked-posts-list {
+  padding: 16px 32px;
+}
+
+.no-posts {
+  color: #6b7280;
+  font-size: 16px;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.tracked-post-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.tracked-post-item:hover {
+  border-color: #3b82f6;
+  background: #0a0a0a;
+}
+
+.post-preview {
+  color: #fff;
+  font-size: 15px;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 16px;
+}
+
+.post-time {
+  color: #6b7280;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* =====================
+   MODE-SPECIFIC HIDING
+   ===================== */
+
+/* POSTING MODE - Just hide sidebars, let compose work */
+body[data-brainrot-mode="posting"] [data-testid="sidebarColumn"] {
+  display: none !important;
+}
+
+body[data-brainrot-mode="posting"] [aria-label="Home timeline"] {
+  display: none !important;
+}
+
+/* REPLYING MODE - Show only tracked posts UI */
+body[data-brainrot-mode="replying"] > *:not(#brainrot-tracked-posts):not(#brainrot-blocker):not(script):not(style) {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body[data-brainrot-mode="replying"] #brainrot-tracked-posts {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* When viewing a specific post in replying mode */
+body[data-brainrot-mode="replying"][data-brainrot-viewing-post="true"] > * {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+body[data-brainrot-mode="replying"][data-brainrot-viewing-post="true"] header[role="banner"],
+body[data-brainrot-mode="replying"][data-brainrot-viewing-post="true"] [data-testid="sidebarColumn"] {
+  display: none !important;
+}
+
+/* DOOMSCROLL MODE - Show everything but with timer */
+body[data-brainrot-mode="doomscrolling"] #brainrot-timer {
+  display: block !important;
+}

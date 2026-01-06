@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "X Brain Rot Blocker",
+  "version": "1.0.0",
+  "description": "Stop doomscrolling. Be intentional about your X usage.",
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "*://x.com/*",
+    "*://twitter.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://x.com/*", "*://twitter.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["*.css", "criminal-scum.mp3"],
+      "matches": ["*://x.com/*", "*://twitter.com/*"]
+    }
+  ]
+}
